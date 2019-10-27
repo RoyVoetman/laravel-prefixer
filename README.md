@@ -17,15 +17,15 @@ composer require royvoetman/laravel-prefixer
 
 ## View prefixes
 
-When you want to use View prefixes your controller will have to implement the `RoyVoetman\Extras\Contracts\ViewPrefix` interface. This interface requires you to add a `viewPrefix` method that returns a `string`.
+When you want to use View prefixes your controller will have to implement the `RoyVoetman\Prefixer\Contracts\ViewPrefix` interface. This interface requires you to add a `viewPrefix` method that returns a `string`.
 
-Second your Controller must include the `RoyVoetman\Extras\Http\Traits\CreatesViews` trait. This trait includes the `view(string $view)` method to the controller which handles the prefixing for us. The best practice is to include this trait in your `BaseController` . This method checks if the `CreatesViews` interface is implemented, if this is not the case this method will behave the same as the `view()` global helper function.
+Second your Controller must include the `RoyVoetman\Prefixer\Http\Traits\CreatesViews` trait. This trait includes the `view(string $view)` method to the controller which handles the prefixing for us. The best practice is to include this trait in your `BaseController` . This method checks if the `CreatesViews` interface is implemented, if this is not the case this method will behave the same as the `view()` global helper function.
 
 ```php
 namespace App\Http\Controllers;
 
 use Illuminate\Contracts\Support\Renderable;
-use RoyVoetman\Extras\Http\Traits\CreatesViews;
+use RoyVoetman\Prefixer\Http\Traits\CreatesViews;
 
 /**
  * Class BookController
@@ -67,7 +67,7 @@ class BookController extends Controller implements CreatesViews
 
 Route prefixing works the same as View Prefixing except for the following: 
 
-The Controller must implement the `RoyVoetman\Extras\Contracts\RoutePrefix` interface and must include the `RoyVoetman\Extras\Http\Traits\ForwardsRequests` trait. 
+The Controller must implement the `RoyVoetman\Prefixer\Contracts\RoutePrefix` interface and must include the `RoyVoetman\Prefixer\Http\Traits\ForwardsRequests` trait. 
 
 Instead of the `viewPrefix` method, you have to include a `routePrefix` method. And instead of the `view(string $view)` method you have to use the `redirect(string $route)` method. When the `RoutePrefix` method is not implemented this method will behave the same as calling `redirect()->route($route)`. 
 
@@ -77,7 +77,7 @@ Instead of the `viewPrefix` method, you have to include a `routePrefix` method. 
 namespace App\Http\Controllers;
 
 use Illuminate\Http\RedirectResponse;
-use RoyVoetman\Extras\Http\Traits\RoutePrefix;
+use RoyVoetman\Prefixer\Http\Traits\RoutePrefix;
 
 /**
  * Class BookController
@@ -121,7 +121,7 @@ class BookController extends Controller implements RoutePrefix
 
 ## View and Route prefixes
 
-There is a convenient shortcut when you want to implement the `ViewPrefix` and the `RoutePrefix` interface. You can include the `RoyVoetman\Extras\Contracts\ResponsePrefixes` interface which just extends both interfaces.
+There is a convenient shortcut when you want to implement the `ViewPrefix` and the `RoutePrefix` interface. You can include the `RoyVoetman\Prefixer\Contracts\ResponsePrefixes` interface which just extends both interfaces.
 
 ```php
 /**

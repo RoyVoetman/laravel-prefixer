@@ -1,0 +1,30 @@
+{
+    "name": "royvoetman/laravel-prefixer",
+    "description": "Define a prefix in your controller which is automatically appended to your view- or route-names.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "illuminate/support": "^5.7|^5.8|^5.9|^6.0",
+        "php": "^7.2",
+        "illuminate/http": "^5.7|^6.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.1"
+    },
+    "authors": [
+        {
+            "name": "Roy Voetman",
+            "email": "royvoetman@outlook.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "RoyVoetman\\Prefixer\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "RoyVoetman\\Prefixer\\Test\\": "tests"
+        }
+    }
+}
