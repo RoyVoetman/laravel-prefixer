@@ -25,6 +25,7 @@ Second your Controller must include the `RoyVoetman\Prefixer\Http\Traits\Creates
 namespace App\Http\Controllers;
 
 use Illuminate\Contracts\Support\Renderable;
+use RoyVoetman\Prefixer\Contracts\ViewPrefix;
 use RoyVoetman\Prefixer\Http\Traits\CreatesViews;
 
 /**
@@ -32,8 +33,10 @@ use RoyVoetman\Prefixer\Http\Traits\CreatesViews;
  *
  * @package App\Http\Controllers
  */
-class BookController extends Controller implements CreatesViews
+class BookController extends Controller implements ViewPrefix
 {
+    use CreatesViews;
+    
     /**
      * @return \Illuminate\Contracts\Support\Renderable
      */
@@ -77,7 +80,8 @@ Instead of the `viewPrefix` method, you have to include a `routePrefix` method. 
 namespace App\Http\Controllers;
 
 use Illuminate\Http\RedirectResponse;
-use RoyVoetman\Prefixer\Http\Traits\RoutePrefix;
+use RoyVoetman\Prefixer\Contracts\RoutePrefix;
+use RoyVoetman\Prefixer\Http\Traits\ForwardsRequests;
 
 /**
  * Class BookController
@@ -86,6 +90,8 @@ use RoyVoetman\Prefixer\Http\Traits\RoutePrefix;
  */
 class BookController extends Controller implements RoutePrefix
 {
+    use ForwardsRequests;
+    
     /**
      * @return \Illuminate\Http\RedirectResponse
      */
