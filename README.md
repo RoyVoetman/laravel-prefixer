@@ -1,7 +1,7 @@
 # Laravel Prefixer
 
 ## Introduction
-Define a prefix in your controller which is automatically appended to your view- or route-names.
+This packages allows you to define a prefix in your controller which is automatically appended to your view and/or route names.
 
 In a resource controller, it is a common pattern to have all the associated views in the same folder, and the same goes for the location of your routes. With this feature, you can define a prefix which is automatically appended to your view-name or route-name. 
 
