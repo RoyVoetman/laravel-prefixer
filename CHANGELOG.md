@@ -13,3 +13,6 @@ All notable changes to `Laravel Prefixer` will be documented in this file
 
 ### 1.0.3 - 2020-12-06
 - Added php 8 support
+
+### 1.0.4 - 2023-06-17
+- Added laravel 9 and 10 support
